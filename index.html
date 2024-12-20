@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="weatherApp">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="app.js"></script>
+</head>
+
+<body ng-controller="WeatherController">
+  <div id="weather-container">
+
+    <h1 id="st2">Weather App</h1>
+    <label id="st" for="city">
+      <h2>Enter City:</h2>
+    </label>
+    <input id="st4" type="text" id="city" ng-model="city" placeholder="Enter city name">
+    <button id="st" class="control-button" ng-click="getWeather()">Get Weather</button>
+
+    <div id="weather-info" ng-show="weatherData">
+      <h1 id="st1">{{ weatherData.name }} {{ weatherData.sys.country }}</h1>
+      <h2 id="st1">Temperature: {{ convertTemperature(weatherData.main.temp) }} {{ temperatureUnit }}</h2>
+      <h2 id="st1">Weather: {{ weatherData.weather[0].description }}</h2>
+      <img id="weather-icon" ng-src="{{ getWeatherIconUrl(weatherData.weather[0].icon) }}" alt="Weather Icon">
+      <h2 id="st1">Humidity: {{ weatherData.main.humidity }}%</h2>
+      <h2 id="st1">Current Date/Time: {{ getCurrentDateTime() }}</h2>
+      <div id="sunrise-sunset">
+        Sunrise: {{ getFormattedTime(weatherData.sys.sunrise) }} | Sunset: {{ getFormattedTime(weatherData.sys.sunset) }}
+      </div>
+      <div id="wind-speed">
+        Wind Speed: {{ weatherData.wind.speed }} m/s
+      </div>
+    </div>
+
+    <label for="toggleUnit">Toggle Temperature Unit:</label>
+    <input type="checkbox" id="toggleUnit" ng-model="isCelsius" ng-change="toggleTemperatureUnit()">
+    <span ng-if="isCelsius">Celsius</span>
+    <span ng-if="!isCelsius">Fahrenheit</span>
+
+    <div id="forecast-container" ng-show="forecastData">
+      <div class="forecast-card" ng-repeat="day in forecastData.list | limitTo:5">
+        <h3>{{ day.dt_txt | date: 'EEE' }}</h3>
+        <img ng-src="{{ getWeatherIconUrl(day.weather[0].icon) }}" alt="Forecast Icon">
+        <p>{{ convertTemperature(day.main.temp) }} {{ temperatureUnit }}</p>
+      </div>
+    </div>
+
+    <div class="loading-spinner" ng-show="loading">Loading...</div>
+  </div>
+  <div id="additional-controls">
+    <h2 id="st12">Additional Controls</h2>
+    <button id="st" class="control-button" ng-click="refreshWeather()">Refresh Weather</button>
+    <button id="st" class="control-button" ng-click="shareWeather()">Share Weather</button>
+  </div>
+</body>
+</html>
