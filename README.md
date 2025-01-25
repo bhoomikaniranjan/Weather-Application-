@@ -19,26 +19,6 @@ The **Weather Application** is a responsive and intuitive AngularJS-based app th
 - **Styling**: CSS3 with responsive design principles
 - **Build Tools**: npm, Bower (if used), and AngularJS CLI
 - **Version Control**: Git and GitHub
-
-## Installation Instructions 🛠️
-
-1. **Clone the repository**:  
-   ```bash
-   git clone https://github.com/yourusername/weather-app.git
-   cd weather-app
-   ```
-2. **Install dependencies**:  
-   ```bash
-   npm install
-   bower install
-   ```
-3. **Run the application**:  
-   ```bash
-   npm start
-   ```
-4. Open the app in your browser:  
-   Navigate to `http://localhost:4200` or the specified port.
-
 ## Usage 📖
 
 - Enter a location in the search bar to fetch weather details.
