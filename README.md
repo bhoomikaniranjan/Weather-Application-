@@ -25,3 +25,14 @@ The **Weather Application** is a responsive and intuitive AngularJS-based app th
 - View real-time weather conditions such as temperature, humidity, and wind speed.
 - Check forecasts for the next few days in the detailed forecast section.
 
+To make your project documentation more visually engaging, here’s how you can add the paths for your screenshots:  
+
+## 📸 Screenshots
+1.**Home Page:**
+   ![Home](Snapshots/home_page.jpg)
+2. **Weather Details for Delhi:**
+   ![Delhi Weather](Snapshots/delhi.jpg)
+3. **Weather Details for Chennai:**
+   ![Chennai Weather](Snapshots/chennai.jpg)
+4. **Weather Details for Bengaluru:**
+   ![Bengaluru Weather](Snapshots/bengaluru.jpg)
